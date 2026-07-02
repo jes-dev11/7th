@@ -8,7 +8,7 @@
   var SITE_PASSWORD = "monthsary"; // EDIT ME: the password / nickname / date
   var START_DATE = new Date("2025-12-30T00:00:00"); // EDIT ME: relationship start date
   var LETTER_TEXT =
-    "Thank you for everything, especially sa pag-intindi mo sa'kin palagi. I know hindi ako laging madali intindihin, pero nandiyan ka pa rin no matter what, and sobrang thankful ako for that. Thank you for making me feel loved, safe, and happy. Every moment with you is something I truly cherish, whether we're doing something special or just spending time together. You always make even the simplest days feel better. I'm really grateful na ikaw ang partner ko. Kahit may mga challenges tayo, I'm happy because we always choose each other and keep moving forward together. I hope we continue to grow, support each other, and celebrate more milestones together.";
+    "Thank you for everything, especially sa pag-intindi mo sa'kin palagi. I know minsan e hindi ako madali intindihin, pero nandiyan ka pa rin no matter what, and sobrang thankful ako for that. Thank you for making me feel loved, safe, and happy. Every moment with you is something I truly cherish, whether we're doing something special or just spending time together. You always make even the simplest days feel better. I'm really grateful na ikaw ang partner ko. Kahit may mga challenges tayo, I'm happy because we always choose each other and keep moving forward together. I hope we continue to grow, support each other, and celebrate more milestones together.";
   var MEMORIES = [
     "Our first picture together.",
     "That day we laughed for hours.",
