@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 8th Monthsary, My Babyy ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="locked">
+    <!-- ============================================================
+     LOADING SCREEN
+============================================================= -->
+    <div id="loading-screen" aria-hidden="true">
+      <div class="loading-heart"></div>
+      <p class="loading-text">loading our love story…</p>
+    </div>
+
+    <!-- ============================================================
+     PASSWORD GATE (optional — set ENABLE_PASSWORD=false in JS to skip)
+============================================================= -->
+    <div id="password-screen" class="hidden">
+      <div class="password-card glass">
+        <h2>This page is just for you 💌</h2>
+        <!-- EDIT ME: change the hint text below -->
+        <p>Enter our special date or nickname to open it</p>
+        <input
+          type="text"
+          id="password-input"
+          placeholder="Type here..."
+          autocomplete="off" />
+        <div id="password-error"></div>
+        <button class="btn" id="password-submit">Unlock ❤️</button>
+      </div>
+    </div>
+
+    <!-- ambient floating layer: hearts, petals, sparkles, stars -->
+    <div id="ambient-layer"></div>
+
+    <!-- sticky nav -->
+    <nav id="site-nav" class="glass" aria-label="Section navigation">
+      <a href="#hero">Home</a>
+      <a href="#letter">Letter</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#reasons">Reasons</a>
+      <a href="#jar">Memory Jar</a>
+      <a href="#counter">Counter</a>
+      <button
+        id="dark-toggle"
+        title="Toggle dark mode"
+        aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </nav>
+
+    <!-- floating music player -->
+    <div id="music-player" class="glass">
+      <button id="music-toggle" aria-label="Play or pause music">▶</button>
+      <div>
+        <div id="music-label">our-song.mp3</div>
+        <div class="eq" id="music-eq" style="display: none">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <!-- EDIT ME: replace src with your own mp3 path, e.g. assets/music/our-song.mp3 -->
+      <audio id="bg-audio" loop preload="none">
+        <source src="assets/images/music/balisong.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <button id="scroll-top" class="glass" aria-label="Scroll to top">↑</button>
+
+    <main id="main-content">
+      <!-- ============================================================
+       HERO
+  ============================================================= -->
+      <section id="hero">
+        <span class="hero-kicker">For the love of my life</span>
+        <!-- EDIT ME: your title -->
+        <h1 class="hero-title">
+          <span class="hero-heart-icon">❤️</span> Happy 8th Monthsary, My
+          Babyy!!!
+        </h1>
+        <!-- EDIT ME: your subtitle -->
+        <p class="hero-sub">
+          Seven months down, forever to go. 🤍 A small reminder of how grateful
+          I am to have you by my side.
+        </p>
+        <div class="hero-btn-wrap">
+          <a href="#letter" class="btn" id="open-surprise"
+            >💗 Open My Surprise</a
+          >
+        </div>
+        <div class="scroll-cue" aria-hidden="true">⌄</div>
+      </section>
+
+      <!-- ============================================================
+       LOVE LETTER
+  ============================================================= -->
+      <section id="letter">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >a little letter</span
+        >
+        <h2 class="section-title">My Love Letter to You</h2>
+        <p class="section-sub">
+          Words I've been keeping in my heart, just for you.
+        </p>
+        <div class="letter-card glass reveal">
+          <div class="letter-greeting">My Babyy,</div>
+          <!-- EDIT ME: the letter text is typed in by JavaScript below for the typewriter effect.
+           Search for LETTER_TEXT in the script to change it. -->
+          <p id="letter-text"></p>
+          <div class="letter-sign">I love you soo muchhh. ❤️</div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       PHOTO GALLERY
+  ============================================================= -->
+      <section id="gallery">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >our memories</span
+        >
+        <h2 class="section-title">Photo Gallery</h2>
+        <p class="section-sub">
+          Every picture, a moment I never want to forget. Click any photo to see
+          it bigger.
+        </p>
+        <!-- EDIT ME: replace each src="assets/images/imageX.jpg" with your own photo,
+         and change the data-cap caption text. Add/remove <div class="gallery-item">
+         blocks to add more or fewer photos. -->
+        <div class="gallery-grid" id="gallery-grid">
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image1.jpg"
+              alt="Memory 1"
+              data-cap="The day we met" />
+            <div class="gallery-cap">First Movie Date natin</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image2.jpg"
+              alt="Memory 2"
+              data-cap="Our first date" />
+            <div class="gallery-cap">Little moments with u</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image3.jpg"
+              alt="Memory 3"
+              data-cap="That trip we loved" />
+            <div class="gallery-cap">First Tagaytay with you</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image4.jpg"
+              alt="Memory 4"
+              data-cap="Silly faces" />
+            <div class="gallery-cap">Coffee Dateee</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image5.jpg"
+              alt="Memory 5"
+              data-cap="Our favorite cafe" />
+            <div class="gallery-cap">First concert with youu</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image6.jpg"
+              alt="Memory 6"
+              data-cap="Movie night" />
+            <div class="gallery-cap">My Favorite Pic of all time</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image7.jpg"
+              alt="Memory 7"
+              data-cap="Your birthday" />
+            <div class="gallery-cap">More coffee datee</div>
+          </div>
+          <div class="gallery-item reveal">
+            <img
+              class="lazy-img"
+              loading="lazy"
+              data-src="assets/images/image8.jpg"
+              alt="Memory 8"
+              data-cap="Just us, today" />
+            <div class="gallery-cap">Last picture natin bago mag bakasyon</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       LIGHTBOX
+  ============================================================= -->
+      <div id="lightbox">
+        <button id="lightbox-close" aria-label="Close">✕</button>
+        <button id="lightbox-prev" aria-label="Previous photo">‹</button>
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-placeholder"></div>
+        <button id="lightbox-next" aria-label="Next photo">›</button>
+      </div>
+
+      <!-- ============================================================
+       TIMELINE
+  ============================================================= -->
+      <section id="timeline">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >our story so far</span
+        >
+        <h2 class="section-title">Our Timeline</h2>
+        <p class="section-sub">
+          Edit the dates and stories below to make it ours.
+        </p>
+        <!-- EDIT ME: each .t-item is one milestone. Edit the t-date, t-title and t-desc text. -->
+        <div class="timeline">
+          <div class="t-item reveal">
+            <div class="t-icon">💕</div>
+            <div class="t-card glass">
+              <div class="t-date">Month 1</div>
+              <div class="t-title">The Day u said yes to me!</div>
+              <div class="t-desc">
+                I remember nung birthday ko, may sinabi kang word na hindi ko
+                alam. Syempre sinearch ko pa, tapos nalaman ko na “yes” pala
+                yung ibig sabihin. Doon ko lang din narealize na sinasagot mo na
+                pala ako. Nakakakilig at hindi ko ‘yon makakalimutan. Also, I
+                remember my first concert, and the best part was that I got to
+                experience it with you. It’s one of my favorite memories, and
+                I’ll never forget that day. Thank you for making my first
+                concert so special. ❤️
+              </div>
+            </div>
+          </div>
+          <div class="t-item reveal">
+            <div class="t-icon">🌸</div>
+            <div class="t-card glass">
+              <div class="t-date">Month 2</div>
+              <div class="t-title">first time mo pumunta samin</div>
+              <div class="t-desc">
+                I remember the first time you went to our house. You were so shy
+                around my mom and family, nakakahiya ka pa talaga that time
+                HAHAHA It was cute though, and I’ll never forget that moment.
+              </div>
+            </div>
+          </div>
+          <div class="t-item reveal">
+            <div class="t-icon">📸</div>
+            <div class="t-card glass">
+              <div class="t-date">Month 4</div>
+              <div class="t-title">Our Favorite Memory</div>
+              <div class="t-desc">
+                remember we went on a date sa malayong kapehan dyan sa Indang
+                tapos pauwi na, wala tayong masakyan kaya sobrang tawa ko kasi
+                akala ko lalakarin na lang natin pauwi HAHAHAHAHA
+              </div>
+            </div>
+          </div>
+          <div class="t-item reveal">
+            <div class="t-icon">🎂</div>
+            <div class="t-card glass">
+              <div class="t-date">Month 7</div>
+              <div class="t-title">last time huhu</div>
+              <div class="t-desc">
+                I remember this was the last time na nagkita tayo before
+                bakasyon. Nag-overnight pa ako sa dorm mo, and that night was
+                super memorable and dami nating ginawa HAHAHA ems. Pero yeah, it
+                was one of those moments na ayoko matapos. I miss you, baby.
+                Sana makapag-overnight pa ulit ako sayo. ❤️
+              </div>
+            </div>
+          </div>
+          <div class="t-item reveal">
+            <div class="t-icon">❤️</div>
+            <div class="t-card glass">
+              <div class="t-date">Today</div>
+              <div class="t-title">Our 8th Monthsarry</div>
+              <div class="t-desc">
+                And here we are — still choosing each other, every single day.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       REASONS I LOVE YOU
+  ============================================================= -->
+      <section id="reasons">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >just a few of many</span
+        >
+        <h2 class="section-title">Reasons I Love You</h2>
+        <p class="section-sub">I could write a hundred more.</p>
+        <!-- EDIT ME: add, remove or edit .reason-card items -->
+        <div class="reasons-grid">
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>Your smile</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>Your kindness</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>Your hugs</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>I can be completely myself around you.</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>Everything about you</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>You make me laugh in ways no one else can.</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>You make me feel appreciated.</p>
+          </div>
+          <div class="reason-card glass reveal">
+            <span class="ic">❤️</span>
+            <p>I love the way you make me feel safe and understood.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       MEMORY JAR
+  ============================================================= -->
+      <section id="jar">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >a little game</span
+        >
+        <h2 class="section-title">Our Memory Jar</h2>
+        <p class="section-sub">Tap the jar to pull out a sweet memory.</p>
+        <div id="jar-wrap">
+          <div
+            id="jar-icon"
+            role="button"
+            tabindex="0"
+            aria-label="Tap to reveal a random memory">
+            <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+              <rect
+                x="30"
+                y="10"
+                width="40"
+                height="14"
+                rx="4"
+                fill="#d8b6e0" />
+              <path
+                d="M20 28 Q20 24 26 24 H74 Q80 24 80 28 V100 Q80 112 68 112 H32 Q20 112 20 100 Z"
+                fill="rgba(255,255,255,0.55)"
+                stroke="#ff9bc0"
+                stroke-width="2" />
+              <text x="50" y="75" font-size="26" text-anchor="middle">💌</text>
+            </svg>
+          </div>
+          <p id="jar-hint">tap the jar ✨</p>
+          <div class="memory-popup glass" id="memory-popup">
+            <p id="memory-text">Tap the jar to begin…</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       LOVE COUNTER
+  ============================================================= -->
+      <section id="counter">
+        <span class="eyebrow" style="text-align: center; display: block"
+          >since the day it began</span
+        >
+        <h2 class="section-title">Together For</h2>
+        <div class="counter-grid">
+          <div class="counter-box glass">
+            <div class="counter-num" id="c-months">0</div>
+            <div class="counter-label">Months</div>
+          </div>
+          <div class="counter-box glass">
+            <div class="counter-num" id="c-days">0</div>
+            <div class="counter-label">Days</div>
+          </div>
+          <div class="counter-box glass">
+            <div class="counter-num" id="c-hours">0</div>
+            <div class="counter-label">Hours</div>
+          </div>
+          <div class="counter-box glass">
+            <div class="counter-num" id="c-minutes">0</div>
+            <div class="counter-label">Minutes</div>
+          </div>
+          <div class="counter-box glass">
+            <div class="counter-num" id="c-seconds">0</div>
+            <div class="counter-label">Seconds</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+       SECRET BUTTON
+  ============================================================= -->
+      <section id="secret-wrap">
+        <button class="btn btn-outline" id="secret-btn">Click Me ❤️</button>
+        <div class="glass" id="secret-reveal">
+          I love you more than words can ever describe.
+        </div>
+      </section>
+
+      <!-- ============================================================
+       FINAL SECTION
+  ============================================================= -->
+      <section id="final">
+        <div class="final-heart">❤️</div>
+        <p class="final-msg">
+          Thank you for being my safe place, my happiness, and my greatest
+          blessing.<br /><br />
+          <strong>Happy 8th Monthsary, my Babyyy.</strong><br />
+          Here's to many more months and years together.<br /><br />
+          I love you forever. ❤️
+        </p>
+      </section>
+    </main>
+
+    <footer>Made with ❤️ just for you.</footer>
+
+    <!-- ============================================================
+     SCRIPT
+============================================================= -->
+    <script src="script.js"></script>
+  </body>
+</html>
